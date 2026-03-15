@@ -31,13 +31,10 @@ class HabitValidator:
 
         # связанная привычка должна быть приятной
         if related_habit and not related_habit.is_pleasant:
-            raise ValidationError(
-                "Связанная привычка должна быть приятной."
-            )
+            raise ValidationError("Связанная привычка должна быть приятной.")
 
         # приятная привычка не может иметь reward или related_habit
         if is_pleasant and (reward or related_habit):
             raise ValidationError(
                 "Приятная привычка не может иметь reward или связанную привычку."
             )
-

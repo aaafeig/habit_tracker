@@ -5,9 +5,7 @@ from django.db import models
 class Habit(models.Model):
 
     user = models.ForeignKey(
-        settings.AUTH_USER_MODEL,
-        on_delete=models.CASCADE,
-        related_name="habits"
+        settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name="habits"
     )
 
     place = models.CharField(max_length=255)
@@ -19,26 +17,14 @@ class Habit(models.Model):
     is_pleasant = models.BooleanField(default=False)
 
     related_habit = models.ForeignKey(
-        "self",
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True
+        "self", on_delete=models.SET_NULL, null=True, blank=True
     )
 
-    frequency = models.PositiveIntegerField(
-        default=1,
-        help_text="периодичность в днях"
-    )
+    frequency = models.PositiveIntegerField(default=1, help_text="периодичность в днях")
 
-    reward = models.CharField(
-        max_length=255,
-        blank=True,
-        null=True
-    )
+    reward = models.CharField(max_length=255, blank=True, null=True)
 
-    duration = models.PositiveIntegerField(
-        help_text="время выполнения в секундах"
-    )
+    duration = models.PositiveIntegerField(help_text="время выполнения в секундах")
 
     is_public = models.BooleanField(default=False)
 

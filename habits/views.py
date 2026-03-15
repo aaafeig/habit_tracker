@@ -28,6 +28,7 @@ class HabitRetrieveUpdateDestroyView(generics.RetrieveUpdateDestroyAPIView):
 
     queryset = Habit.objects.all()
 
+
 class PublicHabitListView(generics.ListAPIView):
 
     serializer_class = HabitSerializer
